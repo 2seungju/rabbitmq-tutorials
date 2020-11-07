@@ -9,10 +9,10 @@ public class Send {
     private static final String QUEUE_NAME = "hello";
 
     public static void main(String[] args) {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+        ConnectionFactory connectionFactory = new ConnectionFactory();
+        connectionFactory.setHost("localhost");
 
-        try (Connection connection = factory.newConnection();
+        try (Connection connection = connectionFactory.newConnection();
             Channel channel = connection.createChannel()) {
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
 
